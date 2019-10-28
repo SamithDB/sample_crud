@@ -19,8 +19,8 @@ let response = {
 
 // Get users
 router.get('/users', (req, res) => {
-    user = { "name":"John" }
-    console.log(user);
+    user = [{"name":"John"},{"name":"Jane"}] 
+    //console.log(user);
     res.json(user);
 });
 

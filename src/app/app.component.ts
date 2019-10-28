@@ -13,7 +13,11 @@ export class AppComponent {
   constructor(private _dataService: DataService) {
 
     this._dataService.getUsers()
-      .subscribe(res => this.users = res);
+      .subscribe(res => {
+        console.log(res);
+        this.users = res
+      
+      });
 
   }
 
