@@ -17,6 +17,16 @@ export class DataService {
 
   }
 
+  login(name, uname, email, pass) {
+    
+    let status= "pass";
+    return status;
+
+  }
+
+  saveUser(name, uname, email, pass){ 
+    console.log(name, uname, email, pass);
+  }
   
 
 }

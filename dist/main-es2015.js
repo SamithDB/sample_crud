@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- LOGIN Form-->\n<section id=\"login\">\n    <div class=\"container\">\n      <div class=\"row\">\n\n        <div class=\"col-md-12 mx-auto\">\n          <div class=\"card\">\n            <div class=\"card-header\">\n              <h4>Account Login</h4>\n            </div>\n            <div class=\"card-body\">\n              <form action=\"dashbord.html\">\n                <div class=\"form-group\">\n                  <label for=\"email\">Email / User name</label>\n                  <input type=\"text\" class=\"form-control\">\n                  <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"password\">Password</label>\n                  <input type=\"password\" class=\"form-control\">\n                </div>\n                <div class=\"form-group form-check\">\n                    <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n                    <label class=\"form-check-label\" for=\"exampleCheck1\">Remember me</label>\n                </div>\n                <input type=\"submit\" value=\"Login\" class=\"btn btn-primary btn-block\">\n              </form>\n              <h6 class=\"card-subtitle mb-2 mt-2 text-muted\">By Sign In , you agree to our Terms of Use and Privacy Policy.</h6>\n            </div>\n          </div>\n        </div>\n\n      </div>\n    </div>\n  </section>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- LOGIN Form-->\n<section id=\"login\">\n    <div class=\"container\">\n      <div class=\"row\">\n\n        <div class=\"col-md-12 mx-auto\">\n          <div class=\"card\">\n            <div class=\"card-header\">\n              <h4>Account Login</h4>\n            </div>\n            <div class=\"card-body\">\n              <form (submit)=\"loginuser($event)\">\n                <div class=\"form-group\">\n                  <label for=\"email\">Email / User name</label>\n                  <input type=\"text\" class=\"form-control\" id=\"uname\">\n                  <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"password\">Password</label>\n                  <input type=\"password\" class=\"form-control\" id=\"pass\">\n                </div>\n                <div class=\"form-group form-check\">\n                    <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n                    <label class=\"form-check-label\" for=\"exampleCheck1\">Remember me</label>\n                </div>\n                <input type=\"submit\" value=\"Login\" class=\"btn btn-primary btn-block\">\n              </form>\n              <h6 class=\"card-subtitle mb-2 mt-2 text-muted\">By Sign In , you agree to our Terms of Use and Privacy Policy.</h6>\n            </div>\n          </div>\n        </div>\n\n      </div>\n    </div>\n  </section>\n");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- Sign Up -->\n<section id=\"login\">\n    <div class=\"container\">\n      <div class=\"row\">\n\n        <div class=\"col-md-12 mx-auto\">\n          <div class=\"card\">\n            <div class=\"card-header\">\n              <h4>User Account</h4>\n            </div>\n            <div class=\"card-body\">\n              <form action=\"dashbord.html\">\n                <div class=\"form-group\">\n                  <label for=\"email\">Name</label>\n                  <div class=\"row\">\n                    <div class=\"col\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Enter the name\">\n                    </div>\n                  </div>\n                </div>\n                <div class=\"form-group\">\n                    <label for=\"email\">Pick a User Name</label>\n                    <input type=\"text\" class=\"form-control\">\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"email\">Your Email</label>\n                  <input type=\"text\" class=\"form-control\">\n                  <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"password\">Your Password</label>\n                  <input type=\"password\" class=\"form-control\">\n                </div>\n                <div class=\"form-group\">\n                    <label for=\"password\">Retype the Password</label>\n                    <input type=\"password\" class=\"form-control\">\n                </div>\n                <div class=\"form-group form-check\">\n                  <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n                  <label class=\"form-check-label\" for=\"exampleCheck1\" muted>Agree to our Terms & Conditions, Visitor Agreement and Privacy Policy.</label>\n                </div>\n                <input type=\"submit\" value=\"Register\" class=\"btn btn-primary btn-block\">\n              </form>\n            </div>\n          </div>\n        </div>\n\n        </div>\n    </div>\n</section>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- Sign Up -->\n<section id=\"login\">\n    <div class=\"container\">\n      <div class=\"row\">\n\n        <div class=\"col-md-12 mx-auto\">\n          <div class=\"card\">\n            <div class=\"card-header\">\n              <h4>User Account</h4>\n            </div>\n            <div class=\"card-body\">\n              <form (submit)=\"signupuser($event)\">\n                <div class=\"form-group\">\n                  <label for=\"email\">Name</label>\n                  <div class=\"row\">\n                    <div class=\"col\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Enter the name\" id=\"name\">\n                    </div>\n                  </div>\n                </div>\n                <div class=\"form-group\">\n                    <label for=\"email\">Pick a User Name</label>\n                    <input type=\"text\" class=\"form-control\" id=\"uname\">\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"email\">Your Email</label>\n                  <input type=\"email\" class=\"form-control\" id=\"email\">\n                  <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"password\">Your Password</label>\n                  <input type=\"password\" class=\"form-control\" id=\"pass\">\n                </div>\n                <div class=\"form-group\">\n                    <label for=\"password\">Retype the Password</label>\n                    <input type=\"password\" class=\"form-control\" id=\"cpass\">\n                </div>\n                <div class=\"form-group form-check\">\n                  <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\n                  <label class=\"form-check-label\" for=\"exampleCheck1\" muted>Agree to our Terms & Conditions, Visitor Agreement and Privacy Policy.</label>\n                </div>\n                <input type=\"submit\" value=\"Register\" class=\"btn btn-primary btn-block\">\n              </form>\n            </div>\n          </div>\n        </div>\n\n        </div>\n    </div>\n</section>");
 
 /***/ }),
 
@@ -388,13 +388,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+;
 let AppComponent = class AppComponent {
     constructor(_dataService) {
         this._dataService = _dataService;
         this._dataService.getUsers()
             .subscribe(res => {
             console.log(res);
-            this.users = res;
+            this.userlist = res;
         });
     }
 };
@@ -459,7 +460,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         imports: [
             _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"],
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _angular_http__WEBPACK_IMPORTED_MODULE_4__["HttpModule"]
+            _angular_http__WEBPACK_IMPORTED_MODULE_4__["HttpModule"],
         ],
         providers: [_data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"]],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
@@ -495,6 +496,13 @@ let DataService = class DataService {
     getUsers() {
         return this._http.get("/api/users")
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(result => this.result = result.json()));
+    }
+    login(name, uname, email, pass) {
+        let status = "pass";
+        return status;
+    }
+    saveUser(name, uname, email, pass) {
+        console.log(name, uname, email, pass);
     }
 };
 DataService.ctorParameters = () => [
@@ -577,13 +585,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
 
 
 let LoginComponent = class LoginComponent {
-    constructor() { }
-    ngOnInit() {
+    constructor(_dataService, router) {
+        this._dataService = _dataService;
+        this.router = router;
+    }
+    ngOnInit() { }
+    loginuser(event) {
+        event.preventDefault();
+        var status;
+        const target = event.target;
+        const uname = target.querySelector('#uname').value;
+        const email = target.querySelector('#uname').value;
+        const pass = target.querySelector('#pass').value;
+        status = this._dataService.login(name, uname, email, pass);
+        //console.log(status);
+        if (status == "pass") {
+            this.router.navigate(["products"]);
+        }
     }
 };
+LoginComponent.ctorParameters = () => [
+    { type: _data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+];
 LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-login',
@@ -665,13 +696,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignupComponent", function() { return SignupComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
+
 
 
 let SignupComponent = class SignupComponent {
-    constructor() { }
-    ngOnInit() {
+    constructor(_dataService) {
+        this._dataService = _dataService;
+    }
+    ngOnInit() { }
+    signupuser(event) {
+        event.preventDefault();
+        const target = event.target;
+        const lname = target.querySelector('#name').value;
+        const uname = target.querySelector('#uname').value;
+        const email = target.querySelector('#email').value;
+        const pass = target.querySelector('#pass').value;
+        const cpass = target.querySelector('#cpass').value;
+        if (pass == cpass) {
+            this._dataService.saveUser(name, uname, email, pass);
+        }
     }
 };
+SignupComponent.ctorParameters = () => [
+    { type: _data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"] }
+];
 SignupComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-signup',

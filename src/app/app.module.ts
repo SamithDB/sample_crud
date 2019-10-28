@@ -22,7 +22,7 @@ import { AppRoutingModule} from './app-routing.module';
   imports: [
     AppRoutingModule,
     BrowserModule,
-    HttpModule
+    HttpModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
