@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-products',
@@ -7,7 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  prolist: Array<any>;
+
+  constructor(private _dataService: DataService) { 
+
+    this._dataService.getProducts()
+      .subscribe(res => {
+        console.log("-----log-----");
+        console.log(res[0].name);
+        this.prolist = res;
+        console.log(this.prolist);
+      
+      });
+  }
 
   ngOnInit() {
   }

@@ -1,7 +1,14 @@
 const express = require('express');
 const router = express.Router();
-
-
+//var Connection = require('tedious').Connection;
+var sql = require("mssql");
+    // Configuration object for your database
+    var config = {
+        user: 'sa',
+        password: 'sam@cinglevue123',
+        server: 'localhost', 
+        database: 'sample_crud' 
+    };
 
 // Error handling
 const sendError = (err, res) => {
@@ -19,9 +26,48 @@ let response = {
 
 // Get users
 router.get('/users', (req, res) => {
-    user = [{"name":"John"},{"name":"Jane"}] 
-    //console.log(user);
-    res.json(user);
+    // connect to the database
+    sql.close();
+    sql.connect(config, function (err) {
+    
+        if (err) console.log(err);
+        // create Request object
+        var request = new sql.Request();
+           
+        // query to the database and get the records
+        request.query('select * from user_login FOR JSON PATH', function (err, recordset) {
+            
+            if (err) console.log(err)
+            // send records as a response
+            //res.send(recordset);
+            //console.log(recordset);
+            sql.close();
+        });
+    });
+
+});
+
+// Get Products
+router.get('/products', (req, res) => {
+    // connect to the database
+    sql.close();
+    sql.connect(config, function (err) {
+    
+        if (err) console.log(err);
+        // create Request object
+        var request = new sql.Request();
+           
+        // query to the database and get the records
+        request.query('select * from product', function (err, recordset) {
+            
+            if (err) console.log(err)
+            // send records as a response
+            //console.log(recordset.recordset);
+            res.send(recordset.recordset);
+            
+        });
+    });
+
 });
 
 module.exports = router;

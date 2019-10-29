@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from './data.service';
-;
+
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,6 @@ export class AppComponent {
 
     this._dataService.getUsers()
       .subscribe(res => {
-        console.log(res);
         this.userlist = res
       
       });

@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>products works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"result\" class=\"bg-light py-5\">\n    <div class=\"container\">\n      <div class=\"row\">\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">#</th>\n                    <th scope=\"col\">Product</th>\n                    <th scope=\"col\">Qty</th>\n                    <th scope=\"col\">Price ($)</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let products of prolist\">\n                    <th scope=\"row\">P_{{ products.id_product }}</th>\n                    <td>{{ products.name }}</td>\n                    <td>{{ products.qty }}</td>\n                    <td>{{ products.price }}</td>\n                    <td>\n                        <form >\n                            <input type=\"submit\" value=\"Delete\">\n                        </form>\n                    </td>\n                    <td>\n                        <a href=\"\">Update</a>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n      </div>\n    </div>\n</section>");
 
 /***/ }),
 
@@ -388,13 +388,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-;
 let AppComponent = class AppComponent {
     constructor(_dataService) {
         this._dataService = _dataService;
         this._dataService.getUsers()
             .subscribe(res => {
-            console.log(res);
             this.userlist = res;
         });
     }
@@ -495,6 +493,10 @@ let DataService = class DataService {
     }
     getUsers() {
         return this._http.get("/api/users")
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(result => this.result = result.json()));
+    }
+    getProducts() {
+        return this._http.get("/api/products")
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(result => this.result = result.json()));
     }
     login(name, uname, email, pass) {
@@ -652,13 +654,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductsComponent", function() { return ProductsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
+
 
 
 let ProductsComponent = class ProductsComponent {
-    constructor() { }
+    constructor(_dataService) {
+        this._dataService = _dataService;
+        this._dataService.getProducts()
+            .subscribe(res => {
+            console.log("-----log-----");
+            console.log(res[0].name);
+            this.prolist = res;
+            console.log(this.prolist);
+        });
+    }
     ngOnInit() {
     }
 };
+ProductsComponent.ctorParameters = () => [
+    { type: _data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"] }
+];
 ProductsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-products',
@@ -708,7 +724,7 @@ let SignupComponent = class SignupComponent {
     signupuser(event) {
         event.preventDefault();
         const target = event.target;
-        const lname = target.querySelector('#name').value;
+        const name = target.querySelector('#name').value;
         const uname = target.querySelector('#uname').value;
         const email = target.querySelector('#email').value;
         const pass = target.querySelector('#pass').value;

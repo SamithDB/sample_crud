@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   signupuser(event){
     event.preventDefault()
     const target = event.target;
-    const lname = target.querySelector('#name').value;
+    const name = target.querySelector('#name').value;
     const uname = target.querySelector('#uname').value;
     const email = target.querySelector('#email').value;
     const pass= target.querySelector('#pass').value;
