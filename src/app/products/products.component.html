@@ -1,5 +1,8 @@
 <section id="result" class="bg-light py-5">
     <div class="container">
+            <a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addPostModal">
+                <i class="fas fa-plus"></i> Add New Product
+            </a>
       <div class="row">
         <table class="table table-striped">
             <thead>
@@ -13,11 +16,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let products of prolist">
-                    <th scope="row">P_{{ products.id_product }}</th>
-                    <td>{{ products.name }}</td>
-                    <td>{{ products.qty }}</td>
-                    <td>{{ products.price }}</td>
+                <tr *ngFor="let product of prolist">
+                    <th scope="row">P_{{ product.id_product }}</th>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.qty }}</td>
+                    <td>{{ product.price }}</td>
                     <td>
                         <form >
                             <input type="submit" value="Delete">
@@ -32,3 +35,36 @@
       </div>
     </div>
 </section>
+
+    <!-- ADD PRODUCT MODAL -->
+    <div class="modal fade" id="addPostModal">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+              <h5 class="modal-title">Add Product</h5>
+              <button class="close" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form (submit)="addproduct($event)" id="addform"> 
+                <div class="form-group">
+                  <label for="title">Name</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                  <label for="body">Qty :</label>
+                  <input type="text" class="form-control" id="qty">
+                </div>
+                <div class="form-group">
+                  <label for="body">Price($) :</label>
+                  <input type="text" class="form-control" id="price">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" type="submit" form="addform" >Add</button>
+            </div>
+          </div>
+        </div>
+      </div>

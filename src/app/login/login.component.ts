@@ -18,17 +18,19 @@ export class LoginComponent implements OnInit {
 
   loginuser(event){
     event.preventDefault();
-    var status;
     const target = event.target;
     const uname = target.querySelector('#uname').value;
     const email = target.querySelector('#uname').value;
     const pass= target.querySelector('#pass').value;
     
-    status = this._dataService.login(name, uname, email, pass);
-    //console.log(status);
-    if(status == "pass"){
-      this.router.navigate(["products"]);
-    }
+    this._dataService.login(uname,email,pass)
+      .subscribe(res => {
+        console.log("-----log-----");
+        console.log(res);
+        if(res != null){
+          this.router.navigate(["products"]);
+        }
+      });
     
   } 
 

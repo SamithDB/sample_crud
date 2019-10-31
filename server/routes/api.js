@@ -1,14 +1,15 @@
+//Use ExpressJS
 const express = require('express');
 const router = express.Router();
 //var Connection = require('tedious').Connection;
 var sql = require("mssql");
-    // Configuration object for your database
-    var config = {
-        user: 'sa',
-        password: 'sam@cinglevue123',
-        server: 'localhost', 
-        database: 'sample_crud' 
-    };
+// Configuration object for your database
+var config = {
+    user: 'sa',
+    password: 'sam@cinglevue123',
+    server: 'localhost', 
+    database: 'sample_crud' 
+};
 
 // Error handling
 const sendError = (err, res) => {
@@ -35,12 +36,12 @@ router.get('/users', (req, res) => {
         var request = new sql.Request();
            
         // query to the database and get the records
-        request.query('select * from user_login FOR JSON PATH', function (err, recordset) {
+        request.query('select * from user_login', function (err, userset) {
             
             if (err) console.log(err)
             // send records as a response
-            //res.send(recordset);
-            //console.log(recordset);
+            res.send(userset.recordset);
+            //console.log(userset.recordset);
             sql.close();
         });
     });

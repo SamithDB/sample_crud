@@ -1,4 +1,7 @@
 export class User{
+    id_user_login:number;
     name:string;
-    age:number;
+    uname:string;
+    email:string;
+    password:string;
 }

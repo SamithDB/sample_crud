@@ -61,7 +61,7 @@
         /***/ (function (module, __webpack_exports__, __webpack_require__) {
             "use strict";
             __webpack_require__.r(__webpack_exports__);
-            /* harmony default export */ __webpack_exports__["default"] = ("<section id=\"result\" class=\"bg-light py-5\">\n    <div class=\"container\">\n      <div class=\"row\">\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">#</th>\n                    <th scope=\"col\">Product</th>\n                    <th scope=\"col\">Qty</th>\n                    <th scope=\"col\">Price ($)</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let products of prolist\">\n                    <th scope=\"row\">P_{{ products.id_product }}</th>\n                    <td>{{ products.name }}</td>\n                    <td>{{ products.qty }}</td>\n                    <td>{{ products.price }}</td>\n                    <td>\n                        <form >\n                            <input type=\"submit\" value=\"Delete\">\n                        </form>\n                    </td>\n                    <td>\n                        <a href=\"\">Update</a>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n      </div>\n    </div>\n</section>");
+            /* harmony default export */ __webpack_exports__["default"] = ("<section id=\"result\" class=\"bg-light py-5\">\n    <div class=\"container\">\n            <a href=\"#\" class=\"btn btn-primary btn-block\" data-toggle=\"modal\" data-target=\"#addPostModal\">\n                <i class=\"fas fa-plus\"></i> Add New Product\n            </a>\n      <div class=\"row\">\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">#</th>\n                    <th scope=\"col\">Product</th>\n                    <th scope=\"col\">Qty</th>\n                    <th scope=\"col\">Price ($)</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let product of prolist\">\n                    <th scope=\"row\">P_{{ product.id_product }}</th>\n                    <td>{{ product.name }}</td>\n                    <td>{{ product.qty }}</td>\n                    <td>{{ product.price }}</td>\n                    <td>\n                        <form >\n                            <input type=\"submit\" value=\"Delete\">\n                        </form>\n                    </td>\n                    <td>\n                        <a href=\"\">Update</a>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n      </div>\n    </div>\n</section>\n\n    <!-- ADD PRODUCT MODAL -->\n    <div class=\"modal fade\" id=\"addPostModal\">\n        <div class=\"modal-dialog modal-lg\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header bg-primary text-white\">\n              <h5 class=\"modal-title\">Add Product</h5>\n              <button class=\"close\" data-dismiss=\"modal\">\n                <span>&times;</span>\n              </button>\n            </div>\n            <div class=\"modal-body\">\n              <form (submit)=\"addproduct($event)\" id=\"addform\"> \n                <div class=\"form-group\">\n                  <label for=\"title\">Name</label>\n                  <input type=\"text\" class=\"form-control\" id=\"name\">\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"body\">Qty :</label>\n                  <input type=\"text\" class=\"form-control\" id=\"qty\">\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"body\">Price($) :</label>\n                  <input type=\"text\" class=\"form-control\" id=\"price\">\n                </div>\n              </form>\n            </div>\n            <div class=\"modal-footer\">\n              <button class=\"btn btn-primary\" type=\"submit\" form=\"addform\" >Add</button>\n            </div>\n          </div>\n        </div>\n      </div>");
             /***/ 
         }),
         /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/signup/signup.component.html": 
@@ -470,12 +470,13 @@
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
             /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
-            /* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./data.service */ "./src/app/data.service.ts");
-            /* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
-            /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-            /* harmony import */ var _signup_signup_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./signup/signup.component */ "./src/app/signup/signup.component.ts");
-            /* harmony import */ var _products_products_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./products/products.component */ "./src/app/products/products.component.ts");
-            /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+            /* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./data.service */ "./src/app/data.service.ts");
+            /* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
+            /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+            /* harmony import */ var _signup_signup_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./signup/signup.component */ "./src/app/signup/signup.component.ts");
+            /* harmony import */ var _products_products_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./products/products.component */ "./src/app/products/products.component.ts");
+            /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
             var AppModule = /** @class */ (function () {
                 function AppModule() {
                 }
@@ -485,17 +486,18 @@
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
                     declarations: [
                         _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-                        _header_header_component__WEBPACK_IMPORTED_MODULE_6__["HeaderComponent"],
-                        _login_login_component__WEBPACK_IMPORTED_MODULE_7__["LoginComponent"],
-                        _signup_signup_component__WEBPACK_IMPORTED_MODULE_8__["SignupComponent"],
-                        _products_products_component__WEBPACK_IMPORTED_MODULE_9__["ProductsComponent"]
+                        _header_header_component__WEBPACK_IMPORTED_MODULE_7__["HeaderComponent"],
+                        _login_login_component__WEBPACK_IMPORTED_MODULE_8__["LoginComponent"],
+                        _signup_signup_component__WEBPACK_IMPORTED_MODULE_9__["SignupComponent"],
+                        _products_products_component__WEBPACK_IMPORTED_MODULE_10__["ProductsComponent"]
                     ],
                     imports: [
-                        _app_routing_module__WEBPACK_IMPORTED_MODULE_10__["AppRoutingModule"],
+                        _app_routing_module__WEBPACK_IMPORTED_MODULE_11__["AppRoutingModule"],
                         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                         _angular_http__WEBPACK_IMPORTED_MODULE_4__["HttpModule"],
+                        _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"]
                     ],
-                    providers: [_data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"]],
+                    providers: [_data_service__WEBPACK_IMPORTED_MODULE_6__["DataService"]],
                     bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
                 })
             ], AppModule);
@@ -513,32 +515,44 @@
             /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
-            /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+            /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+            /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+            /* harmony import */ var _models_user__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./models/user */ "./src/app/models/user.ts");
+            var login_user = new _models_user__WEBPACK_IMPORTED_MODULE_5__["User"]();
             var DataService = /** @class */ (function () {
-                function DataService(_http) {
+                //private _http: Http
+                function DataService(_http, http) {
                     this._http = _http;
+                    this.http = http;
                 }
                 DataService.prototype.getUsers = function () {
                     var _this = this;
-                    return this._http.get("/api/users")
-                        .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (result) { return _this.result = result.json(); }));
+                    return this._http.get("/api/users").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (result) { return _this.result = result.json(); }));
                 };
                 DataService.prototype.getProducts = function () {
-                    var _this = this;
-                    return this._http.get("/api/products")
-                        .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (result) { return _this.result = result.json(); }));
+                    //console.log(this.http.get('/api/products'));
+                    return this.http.get('/api/products');
                 };
-                DataService.prototype.login = function (name, uname, email, pass) {
-                    var status = "pass";
-                    return status;
+                DataService.prototype.login = function (uname, email, pass) {
+                    var _this = this;
+                    login_user.uname = uname;
+                    login_user.uname = email;
+                    login_user.uname = pass;
+                    //
+                    return this._http.get("/api/users").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (result) { return _this.result = result.json(); }));
+                    ;
                 };
                 DataService.prototype.saveUser = function (name, uname, email, pass) {
                     console.log(name, uname, email, pass);
                 };
+                DataService.prototype.saveProduct = function (name, qty, price) {
+                    console.log(name, qty, price);
+                };
                 return DataService;
             }());
             DataService.ctorParameters = function () { return [
-                { type: _angular_http__WEBPACK_IMPORTED_MODULE_2__["Http"] }
+                { type: _angular_http__WEBPACK_IMPORTED_MODULE_2__["Http"] },
+                { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
             ]; };
             DataService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
                 Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
@@ -614,17 +628,20 @@
                 }
                 LoginComponent.prototype.ngOnInit = function () { };
                 LoginComponent.prototype.loginuser = function (event) {
+                    var _this = this;
                     event.preventDefault();
-                    var status;
                     var target = event.target;
                     var uname = target.querySelector('#uname').value;
                     var email = target.querySelector('#uname').value;
                     var pass = target.querySelector('#pass').value;
-                    status = this._dataService.login(name, uname, email, pass);
-                    //console.log(status);
-                    if (status == "pass") {
-                        this.router.navigate(["products"]);
-                    }
+                    this._dataService.login(uname, email, pass)
+                        .subscribe(function (res) {
+                        console.log("-----log-----");
+                        console.log(res);
+                        if (res != null) {
+                            _this.router.navigate(["products"]);
+                        }
+                    });
                 };
                 return LoginComponent;
             }());
@@ -639,6 +656,23 @@
                     styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")).default]
                 })
             ], LoginComponent);
+            /***/ 
+        }),
+        /***/ "./src/app/models/user.ts": 
+        /*!********************************!*\
+          !*** ./src/app/models/user.ts ***!
+          \********************************/
+        /*! exports provided: User */
+        /***/ (function (module, __webpack_exports__, __webpack_require__) {
+            "use strict";
+            __webpack_require__.r(__webpack_exports__);
+            /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function () { return User; });
+            /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+            var User = /** @class */ (function () {
+                function User() {
+                }
+                return User;
+            }());
             /***/ 
         }),
         /***/ "./src/app/products/products.component.css": 
@@ -665,18 +699,29 @@
             /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
             /* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
             var ProductsComponent = /** @class */ (function () {
+                //prolist: Array<any>;
+                //prolist: { id_product:number; name:string, qty:number, price:number}[] =[];
                 function ProductsComponent(_dataService) {
-                    var _this = this;
                     this._dataService = _dataService;
                     this._dataService.getProducts()
                         .subscribe(function (res) {
                         console.log("-----log-----");
-                        console.log(res[0].name);
-                        _this.prolist = res;
-                        console.log(_this.prolist);
+                        console.log(res);
+                        //for(var counter:number = 0; counter<res; counter++){
+                        //}
+                        console.log(res);
                     });
                 }
                 ProductsComponent.prototype.ngOnInit = function () {
+                };
+                ProductsComponent.prototype.addproduct = function (event) {
+                    event.preventDefault();
+                    var target = event.target;
+                    var name = target.querySelector('#name').value;
+                    var uname = target.querySelector('#qty').value;
+                    var email = target.querySelector('#price').value;
+                    //console.log(name, uname, email);
+                    this._dataService.saveProduct(name, uname, email);
                 };
                 return ProductsComponent;
             }());

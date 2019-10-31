@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './data.service';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
@@ -23,6 +24,7 @@ import { AppRoutingModule} from './app-routing.module';
     AppRoutingModule,
     BrowserModule,
     HttpModule,
+    HttpClientModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
