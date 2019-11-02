@@ -22,12 +22,13 @@
                     <td>{{ product.qty }}</td>
                     <td>{{ product.price }}</td>
                     <td>
-                        <form >
-                            <input type="submit" value="Delete">
-                        </form>
+                      <form (submit)="deleteproduct($event)" > 
+                        <input type="text" class="form-control" id="id" type="hidden" value ="{{product.id_product}}">
+                        <button class="btn btn-primary" type="submit"  >Delete</button>
+                      </form>
                     </td>
                     <td>
-                        <a href="">Update</a>
+                      <!-- //Update goes here-->
                     </td>
                 </tr>
             </tbody>

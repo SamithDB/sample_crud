@@ -12,13 +12,13 @@ export class AppComponent {
   userlist: Array<any>;
 
   constructor(private _dataService: DataService) {
-
+/*
     this._dataService.getUsers()
       .subscribe(res => {
         this.userlist = res
       
       });
-
+*/
   }
 
 }

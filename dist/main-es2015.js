@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"result\" class=\"bg-light py-5\">\n    <div class=\"container\">\n            <a href=\"#\" class=\"btn btn-primary btn-block\" data-toggle=\"modal\" data-target=\"#addPostModal\">\n                <i class=\"fas fa-plus\"></i> Add New Product\n            </a>\n      <div class=\"row\">\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">#</th>\n                    <th scope=\"col\">Product</th>\n                    <th scope=\"col\">Qty</th>\n                    <th scope=\"col\">Price ($)</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let product of prolist\">\n                    <th scope=\"row\">P_{{ product.id_product }}</th>\n                    <td>{{ product.name }}</td>\n                    <td>{{ product.qty }}</td>\n                    <td>{{ product.price }}</td>\n                    <td>\n                        <form >\n                            <input type=\"submit\" value=\"Delete\">\n                        </form>\n                    </td>\n                    <td>\n                        <a href=\"\">Update</a>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n      </div>\n    </div>\n</section>\n\n    <!-- ADD PRODUCT MODAL -->\n    <div class=\"modal fade\" id=\"addPostModal\">\n        <div class=\"modal-dialog modal-lg\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header bg-primary text-white\">\n              <h5 class=\"modal-title\">Add Product</h5>\n              <button class=\"close\" data-dismiss=\"modal\">\n                <span>&times;</span>\n              </button>\n            </div>\n            <div class=\"modal-body\">\n              <form (submit)=\"addproduct($event)\" id=\"addform\"> \n                <div class=\"form-group\">\n                  <label for=\"title\">Name</label>\n                  <input type=\"text\" class=\"form-control\" id=\"name\">\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"body\">Qty :</label>\n                  <input type=\"text\" class=\"form-control\" id=\"qty\">\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"body\">Price($) :</label>\n                  <input type=\"text\" class=\"form-control\" id=\"price\">\n                </div>\n              </form>\n            </div>\n            <div class=\"modal-footer\">\n              <button class=\"btn btn-primary\" type=\"submit\" form=\"addform\" >Add</button>\n            </div>\n          </div>\n        </div>\n      </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<section id=\"result\" class=\"bg-light py-5\">\n    <div class=\"container\">\n            <a href=\"#\" class=\"btn btn-primary btn-block\" data-toggle=\"modal\" data-target=\"#addPostModal\">\n                <i class=\"fas fa-plus\"></i> Add New Product\n            </a>\n      <div class=\"row\">\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th scope=\"col\">#</th>\n                    <th scope=\"col\">Product</th>\n                    <th scope=\"col\">Qty</th>\n                    <th scope=\"col\">Price ($)</th>\n                    <th scope=\"col\"></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let product of prolist\">\n                    <th scope=\"row\">P_{{ product.id_product }}</th>\n                    <td>{{ product.name }}</td>\n                    <td>{{ product.qty }}</td>\n                    <td>{{ product.price }}</td>\n                    <td>\n                      <form (submit)=\"deleteproduct($event)\" > \n                        <input type=\"text\" class=\"form-control\" id=\"id\" type=\"hidden\" value =\"{{product.id_product}}\">\n                        <button class=\"btn btn-primary\" type=\"submit\"  >Delete</button>\n                      </form>\n                    </td>\n                    <td>\n                      <a href=\"\">Update</a>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n      </div>\n    </div>\n</section>\n\n    <!-- ADD PRODUCT MODAL -->\n    <div class=\"modal fade\" id=\"addPostModal\">\n        <div class=\"modal-dialog modal-lg\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header bg-primary text-white\">\n              <h5 class=\"modal-title\">Add Product</h5>\n              <button class=\"close\" data-dismiss=\"modal\">\n                <span>&times;</span>\n              </button>\n            </div>\n            <div class=\"modal-body\">\n              <form (submit)=\"addproduct($event)\" id=\"addform\"> \n                <div class=\"form-group\">\n                  <label for=\"title\">Name</label>\n                  <input type=\"text\" class=\"form-control\" id=\"name\">\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"body\">Qty :</label>\n                  <input type=\"text\" class=\"form-control\" id=\"qty\">\n                </div>\n                <div class=\"form-group\">\n                  <label for=\"body\">Price($) :</label>\n                  <input type=\"text\" class=\"form-control\" id=\"price\">\n                </div>\n              </form>\n            </div>\n            <div class=\"modal-footer\">\n              <button class=\"btn btn-primary\" type=\"submit\" form=\"addform\" >Add</button>\n            </div>\n          </div>\n        </div>\n      </div>");
 
 /***/ }),
 
@@ -333,6 +333,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _signup_signup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./signup/signup.component */ "./src/app/signup/signup.component.ts");
 /* harmony import */ var _products_products_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./products/products.component */ "./src/app/products/products.component.ts");
+/* harmony import */ var _auth_guard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./auth.guard */ "./src/app/auth.guard.ts");
+
 
 
 
@@ -344,7 +346,7 @@ const appRoutes = [
     // { path: '', redirectTo:'/home', pathMatch: 'full'},
     { path: '', component: _login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
     { path: 'signup', component: _signup_signup_component__WEBPACK_IMPORTED_MODULE_4__["SignupComponent"] },
-    { path: 'products', component: _products_products_component__WEBPACK_IMPORTED_MODULE_5__["ProductsComponent"] },
+    { path: 'products', component: _products_products_component__WEBPACK_IMPORTED_MODULE_5__["ProductsComponent"], canActivate: [_auth_guard__WEBPACK_IMPORTED_MODULE_6__["AuthGuard"]] },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -391,10 +393,13 @@ __webpack_require__.r(__webpack_exports__);
 let AppComponent = class AppComponent {
     constructor(_dataService) {
         this._dataService = _dataService;
-        this._dataService.getUsers()
-            .subscribe(res => {
-            this.userlist = res;
-        });
+        /*
+            this._dataService.getUsers()
+              .subscribe(res => {
+                this.userlist = res
+              
+              });
+        */
     }
 };
 AppComponent.ctorParameters = () => [
@@ -425,15 +430,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./data.service */ "./src/app/data.service.ts");
-/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _signup_signup_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./signup/signup.component */ "./src/app/signup/signup.component.ts");
-/* harmony import */ var _products_products_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./products/products.component */ "./src/app/products/products.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _token_interceptor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./token.interceptor */ "./src/app/token.interceptor.ts");
+/* harmony import */ var src_app_models_user__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/models/user */ "./src/app/models/user.ts");
+/* harmony import */ var src_app_models_product__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/models/product */ "./src/app/models/product.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./data.service */ "./src/app/data.service.ts");
+/* harmony import */ var _auth_guard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./auth.guard */ "./src/app/auth.guard.ts");
+/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./header/header.component */ "./src/app/header/header.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _signup_signup_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./signup/signup.component */ "./src/app/signup/signup.component.ts");
+/* harmony import */ var _products_products_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./products/products.component */ "./src/app/products/products.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 
 
 
@@ -446,27 +454,93 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+/*
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
+*/
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-            _header_header_component__WEBPACK_IMPORTED_MODULE_7__["HeaderComponent"],
-            _login_login_component__WEBPACK_IMPORTED_MODULE_8__["LoginComponent"],
-            _signup_signup_component__WEBPACK_IMPORTED_MODULE_9__["SignupComponent"],
-            _products_products_component__WEBPACK_IMPORTED_MODULE_10__["ProductsComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
+            _header_header_component__WEBPACK_IMPORTED_MODULE_10__["HeaderComponent"],
+            _login_login_component__WEBPACK_IMPORTED_MODULE_11__["LoginComponent"],
+            _signup_signup_component__WEBPACK_IMPORTED_MODULE_12__["SignupComponent"],
+            _products_products_component__WEBPACK_IMPORTED_MODULE_13__["ProductsComponent"]
         ],
         imports: [
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_11__["AppRoutingModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_14__["AppRoutingModule"],
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _angular_http__WEBPACK_IMPORTED_MODULE_4__["HttpModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClientModule"]
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"]
+            /*
+            JwtModule.forRoot({
+              config: {
+                tokenGetter: tokenGetter,
+                whitelistedDomains: ['localhost:3000'],
+                blacklistedRoutes: ['localhost:3000/api/auth']
+              }
+            })
+            */
         ],
-        providers: [_data_service__WEBPACK_IMPORTED_MODULE_6__["DataService"]],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
+        providers: [
+            src_app_models_user__WEBPACK_IMPORTED_MODULE_5__["User"],
+            src_app_models_product__WEBPACK_IMPORTED_MODULE_6__["Product"],
+            _data_service__WEBPACK_IMPORTED_MODULE_8__["DataService"],
+            _auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"],
+            {
+                provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HTTP_INTERCEPTORS"],
+                useClass: _token_interceptor__WEBPACK_IMPORTED_MODULE_4__["AuthInterceptorService"],
+                multi: true
+            }
+        ],
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })
 ], AppModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/auth.guard.ts":
+/*!*******************************!*\
+  !*** ./src/app/auth.guard.ts ***!
+  \*******************************/
+/*! exports provided: AuthGuard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return AuthGuard; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
+let AuthGuard = class AuthGuard {
+    constructor(router) {
+        this.router = router;
+    }
+    canActivate(next, state) {
+        if (localStorage.getItem('access_token')) {
+            return true;
+        }
+        this.router.navigate(['login']);
+        return false;
+    }
+};
+AuthGuard.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], AuthGuard);
 
 
 
@@ -484,48 +558,95 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DataService", function() { return DataService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm2015/http.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var _models_user__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./models/user */ "./src/app/models/user.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 
 
 
-
-
-var login_user = new _models_user__WEBPACK_IMPORTED_MODULE_5__["User"]();
 let DataService = class DataService {
-    //private _http: Http
-    constructor(_http, http) {
-        this._http = _http;
+    constructor(http) {
         this.http = http;
+        this.prolist = [];
+        this.http.get('/api/products').subscribe(res => {
+            this.prolist = res;
+            console.log(this.prolist); //for dev
+        });
+    }
+    ngOnInit() {
     }
     getUsers() {
-        return this._http.get("/api/users").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(result => this.result = result.json()));
+        //Get all users development code goes here
     }
-    getProducts() {
-        //console.log(this.http.get('/api/products'));
-        return this.http.get('/api/products');
-    }
-    login(uname, email, pass) {
-        login_user.uname = uname;
-        login_user.uname = email;
-        login_user.uname = pass;
-        //
-        return this._http.get("/api/users").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(result => this.result = result.json()));
-        ;
-    }
+    //Save New user
     saveUser(name, uname, email, pass) {
-        console.log(name, uname, email, pass);
+        this.http.post('/api/saveuser', { name: name, uname: uname, email: email, pass: pass })
+            .subscribe((res) => {
+            console.log(res);
+        }, (err) => {
+            console.log(err);
+        });
     }
-    saveProduct(name, qty, price) {
-        console.log(name, qty, price);
+    //Get Products
+    getProducts() {
+        this.http.get('/api/products').subscribe(res => {
+            console.log("-----log-----");
+            this.prolist = res;
+            console.log(this.prolist); //for dev
+        });
+        return this.prolist;
+    }
+    //Save Product
+    savepro(name, qty, price) {
+        this.http.post('/api/saveproduct', { name: name, qty: qty, price: price })
+            .subscribe((res) => {
+            console.log(res);
+            this.getProducts();
+        }, (err) => {
+            console.log(err);
+        });
+    }
+    //Delete Product
+    deletepro(id) {
+        this.http.post('/api/deleteproduct', { id: id })
+            .subscribe((res) => {
+            console.log(res);
+            this.getProducts();
+        }, (err) => {
+            console.log(err);
+        });
+    }
+    //Save Product
+    updatepro(name, qty, price) {
+        this.http.post('/api/updateproduct', { name: name, qty: qty, price: price })
+            .subscribe((res) => {
+            console.log(res);
+            this.getProducts();
+        }, (err) => {
+            console.log(err);
+        });
+    }
+    //User login
+    login(username, email, password) {
+        return this.http.post('/api/auth', { username: username, email: email, password: password })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(result => {
+            localStorage.setItem('access_token', result.token);
+            return true;
+        }));
+    }
+    //Token related methods
+    getToken() {
+        return localStorage.getItem('token');
+    }
+    logout() {
+        localStorage.removeItem('access_token');
+    }
+    get loggedIn() {
+        return (localStorage.getItem('access_token') !== null);
     }
 };
 DataService.ctorParameters = () => [
-    { type: _angular_http__WEBPACK_IMPORTED_MODULE_2__["Http"] },
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
 ];
 DataService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
@@ -606,6 +727,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../data.service */ "./src/app/data.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
 
 
 
@@ -615,7 +738,9 @@ let LoginComponent = class LoginComponent {
         this._dataService = _dataService;
         this.router = router;
     }
-    ngOnInit() { }
+    ngOnInit() {
+        this._dataService;
+    }
     loginuser(event) {
         event.preventDefault();
         const target = event.target;
@@ -623,13 +748,10 @@ let LoginComponent = class LoginComponent {
         const email = target.querySelector('#uname').value;
         const pass = target.querySelector('#pass').value;
         this._dataService.login(uname, email, pass)
-            .subscribe(res => {
-            console.log("-----log-----");
-            console.log(res);
-            if (res != null) {
-                this.router.navigate(["products"]);
-            }
-        });
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])())
+            .subscribe(result => this.router.navigate(['products']), 
+        //result => console.log(result),
+        err => this.error = 'Could not authenticate');
     }
 };
 LoginComponent.ctorParameters = () => [
@@ -644,6 +766,24 @@ LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     })
 ], LoginComponent);
 
+
+
+/***/ }),
+
+/***/ "./src/app/models/product.ts":
+/*!***********************************!*\
+  !*** ./src/app/models/product.ts ***!
+  \***********************************/
+/*! exports provided: Product */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Product", function() { return Product; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+class Product {
+}
 
 
 /***/ }),
@@ -696,29 +836,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProductsComponent = class ProductsComponent {
-    //prolist: Array<any>;
-    //prolist: { id_product:number; name:string, qty:number, price:number}[] =[];
     constructor(_dataService) {
         this._dataService = _dataService;
-        this._dataService.getProducts()
-            .subscribe(res => {
-            console.log("-----log-----");
-            console.log(res);
-            //for(var counter:number = 0; counter<res; counter++){
-            //}
-            console.log(res);
-        });
+        this.prolist = [];
     }
     ngOnInit() {
+        this._dataService.getProducts();
+        console.log(this._dataService.prolist);
+        this.prolist = this._dataService.getProducts();
     }
     addproduct(event) {
         event.preventDefault();
         const target = event.target;
         const name = target.querySelector('#name').value;
-        const uname = target.querySelector('#qty').value;
-        const email = target.querySelector('#price').value;
-        //console.log(name, uname, email);
-        this._dataService.saveProduct(name, uname, email);
+        const qty = target.querySelector('#qty').value;
+        const price = target.querySelector('#price').value;
+        console.log("adding1");
+        this._dataService.savepro(name, qty, price);
+        ;
+        this.prolist = this._dataService.prolist;
+    }
+    deleteproduct(event) {
+        event.preventDefault();
+        const target = event.target;
+        const id = target.querySelector('#id').value;
+        console.log(id);
+        this._dataService.deletepro(id);
+        ;
+        this.prolist = this._dataService.getProducts();
     }
 };
 ProductsComponent.ctorParameters = () => [
@@ -793,6 +938,53 @@ SignupComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./signup.component.css */ "./src/app/signup/signup.component.css")).default]
     })
 ], SignupComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/token.interceptor.ts":
+/*!**************************************!*\
+  !*** ./src/app/token.interceptor.ts ***!
+  \**************************************/
+/*! exports provided: AuthInterceptorService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthInterceptorService", function() { return AuthInterceptorService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+
+let AuthInterceptorService = class AuthInterceptorService {
+    intercept(req, next) {
+        console.log("Interception In Progress");
+        const token = localStorage.getItem('access_token');
+        console.log("token-" + token);
+        req = req.clone({ headers: req.headers.set('Authorization', 'Bearer ' + token) });
+        req = req.clone({ headers: req.headers.set('Content-Type', 'application/json') });
+        req = req.clone({ headers: req.headers.set('Accept', 'application/json') });
+        return next.handle(req)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])((error) => {
+            //401 UNAUTHORIZED
+            if (error && error.status === 401) {
+                console.log("ERROR 401 UNAUTHORIZED");
+            }
+            const err = error.error.message || error.statusText;
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error);
+        }));
+    }
+};
+AuthInterceptorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], AuthInterceptorService);
 
 
 
