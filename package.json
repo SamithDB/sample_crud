@@ -25,7 +25,7 @@
     "bootstrap": "^4.3.1",
     "cors": "^2.8.5",
     "express-jwt": "^5.3.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jsonwebtoken": "^8.5.1",
     "mssql": "^5.1.0",
     "rxjs": "~6.4.0",
